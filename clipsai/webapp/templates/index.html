@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+	<h2>Transcribe and Clip Your Media</h2>
+	<p>Upload an audio or video file to transcribe using ClipsAI (WhisperX-based). ffmpeg required for media handling.</p>
+	{% if not ffmpeg_ok %}
+	<div class="alert alert-warn">ffmpeg not detected. Some features may not work. Install ffmpeg to enable full functionality.</div>
+	{% endif %}
+</section>
+<section class="card">
+	<h3>Upload Media</h3>
+	<form action="/upload" method="post" enctype="multipart/form-data">
+		<div class="form-row">
+			<label for="file">Choose file</label>
+			<input type="file" id="file" name="file" required />
+		</div>
+		<div class="form-row">
+			<label for="action">Action</label>
+			<select id="action" name="action">
+				<option value="transcribe">Transcribe</option>
+			</select>
+		</div>
+		<button type="submit">Process</button>
+	</form>
+</section>
+{% endblock %}

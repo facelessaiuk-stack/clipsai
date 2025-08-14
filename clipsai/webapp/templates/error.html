@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+	<h2>{{ title }}</h2>
+	<p class="error">{{ error }}</p>
+	{% if hint %}<p class="hint">{{ hint }}</p>{% endif %}
+	<p><a href="/">← Back</a></p>
+</section>
+{% endblock %}
