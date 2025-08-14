@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: clipsai_webapp/Dockerfile
+    image: clipsai-web:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - CLIPSAI_DATA_DIR=/data
+    volumes:
+      - clipsai-data:/data
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    runtime: nvidia
+volumes:
+  clipsai-data:
