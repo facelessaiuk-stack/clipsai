@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Results - ClipsAI</title>
+	<link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+	<div class="container">
+		<h1>Results</h1>
+		<p>File: {{ filename }}</p>
+		<h2>Clips</h2>
+		<ul>
+			{% for c in clips %}
+			<li>{{ c.start_time }}s → {{ c.end_time }}s (chars {{ c.start_char }}–{{ c.end_char }})</li>
+			{% endfor %}
+		</ul>
+		<h2>Sentences</h2>
+		<ol>
+			{% for s in sentences %}
+			<li>[{{ '%.2f'|format(s.start_time) }}–{{ '%.2f'|format(s.end_time) }}] {{ s.text }}</li>
+			{% endfor %}
+		</ol>
+		<h2>Words</h2>
+		<div class="words">
+			{% for w in words %}
+			<span title="{{ '%.2f'|format(w.start_time) }}–{{ '%.2f'|format(w.end_time) }}">{{ w.text }}</span>
+			{% endfor %}
+		</div>
+		<p><a href="/">Process another</a></p>
+	</div>
+</body>
+</html>
