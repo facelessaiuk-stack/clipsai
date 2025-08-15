@@ -6,6 +6,7 @@ from .media.editor import MediaEditor
 from .media.video_file import VideoFile
 from .resize.resize import resize
 from .transcribe.transcriber import Transcriber
+from .faceless import FacelessVideoGenerator
 
 # Types
 from .clip.clip import Clip
@@ -21,6 +22,7 @@ __all__ = [
     "ClipFinder",
     "Clip",
     "Crops",
+    "FacelessVideoGenerator",
     "MediaEditor",
     "Segment",
     "Sentence",

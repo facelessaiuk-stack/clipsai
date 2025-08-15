@@ -60,5 +60,13 @@ setup(
             "pytest",
             "twine",
         ],
+        "tts": [
+            "pyttsx3",
+        ],
+    },
+    entry_points={
+        "console_scripts": [
+            "clipsai-faceless=clipsai.faceless.cli:main",
+        ]
     },
 )

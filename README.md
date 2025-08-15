@@ -65,3 +65,23 @@ crops = resize(
 
 print("Crops: ", crops.segments)
 ```
+
+### Faceless video generation (open-source TTS + slideshow)
+
+```python
+from clipsai import FacelessVideoGenerator
+
+# Optional: pip install 'clipsai[tts]' for local pyttsx3 TTS backend
+
+gen = FacelessVideoGenerator(resolution=(1080, 1920), fps=30)
+output = gen.generate(
+    script_text="This is an example narration for a faceless video.",
+    output_video_path="/abs/path/to/output.mp4",
+    image_paths=[
+        "/abs/path/to/image1.jpg",
+        "/abs/path/to/image2.jpg",
+        "/abs/path/to/image3.jpg",
+    ],
+)
+print("Generated:", output)
+```
